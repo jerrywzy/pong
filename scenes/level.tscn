@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://hfxosohrxb0c"]
+
+[ext_resource type="PackedScene" uid="uid://xjxmguoja6ug" path="res://scenes/paddle.tscn" id="1_uglqo"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_xthym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2t5m"]
+size = Vector2(1086, 4)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_xthym")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1208.0
+offset_bottom = 688.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(580, 330)
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2(0, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(580, 3)
+shape = SubResource("RectangleShape2D_a2t5m")
+
+[node name="ColorRect" type="ColorRect" parent="Wall1"]
+offset_left = 37.0
+offset_top = 1.0
+offset_right = 1123.0
+offset_bottom = 5.0
+color = Color(1, 1, 1, 0.858824)
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(0, 634)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(580, 3)
+shape = SubResource("RectangleShape2D_a2t5m")
+
+[node name="ColorRect" type="ColorRect" parent="Wall2"]
+offset_left = 37.0
+offset_top = 1.0
+offset_right = 1123.0
+offset_bottom = 5.0
+color = Color(1, 1, 1, 0.858824)
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(115, 353)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(54.9999, -1015)
+shape = SubResource("RectangleShape2D_a2t5m")
+
+[node name="ColorRect" type="ColorRect" parent="Wall3"]
+offset_left = -480.0
+offset_top = -1017.0
+offset_right = 606.0
+offset_bottom = -1013.0
+color = Color(1, 1, 1, 0.858824)
+
+[node name="Paddle" parent="." instance=ExtResource("1_uglqo")]
+position = Vector2(46, 328)
