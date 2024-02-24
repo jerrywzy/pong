@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpw5ky1o54rpw"]
+[gd_scene load_steps=7 format=3 uid="uid://cpw5ky1o54rpw"]
 
 [ext_resource type="Texture2D" uid="uid://bmw46evopnlna" path="res://white_box.png" id="1_g1lej"]
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_g4g8s"]
+[ext_resource type="AudioStream" uid="uid://4408aqa5g6k8" path="res://sounds_ping_pong_8bit_captaincrunh80_opengameart/sounds_ping_pong_8bit/ping_pong_8bit_plop.ogg" id="3_bp3lm"]
+[ext_resource type="AudioStream" uid="uid://kdumcjligawr" path="res://sounds_ping_pong_8bit_captaincrunh80_opengameart/sounds_ping_pong_8bit/ping_pong_8bit_beeep.ogg" id="4_tdji4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cn4c"]
 size = Vector2(12.75, 12.5)
 
-[node name="Ball" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g3k1"]
+size = Vector2(15, 14)
+
+[node name="Ball" type="RigidBody2D" groups=["Balls"]]
+collision_layer = 2
 gravity_scale = 0.0
+can_sleep = false
+max_contacts_reported = 500
+contact_monitor = true
 script = ExtResource("1_g4g8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -22,4 +31,18 @@ texture = ExtResource("1_g1lej")
 position = Vector2(-1.19209e-07, 1.19209e-07)
 scale = Vector2(0.7, 0.7)
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_8g3k1")
+
+[node name="Sound_ShortBeep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bp3lm")
+pitch_scale = 1.03
+
+[node name="Sound_Beep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tdji4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
