@@ -1,0 +1,230 @@
+[gd_scene load_steps=8 format=3 uid="uid://dijfrh2eas8h7"]
+
+[ext_resource type="Script" path="res://scripts/level_1p.gd" id="1_u65qw"]
+[ext_resource type="PackedScene" uid="uid://xjxmguoja6ug" path="res://scenes/paddle.tscn" id="2_druv2"]
+[ext_resource type="PackedScene" uid="uid://sfn5cgwco58c" path="res://scenes/paddle_ai.tscn" id="3_sa6ks"]
+[ext_resource type="FontFile" uid="uid://rd6wnk4gojee" path="res://Game_Sean_Denny.ttf" id="4_p7lc7"]
+[ext_resource type="AudioStream" uid="uid://d12ivxhmmoaim" path="res://sounds_ping_pong_8bit_captaincrunh80_opengameart/sounds_ping_pong_8bit/ping_pong_8bit_peeeeeep.ogg" id="5_a71sy"]
+[ext_resource type="PackedScene" uid="uid://digslyb4umw6o" path="res://scenes/pause.tscn" id="6_pfx6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2t5m"]
+size = Vector2(1086, 4)
+
+[node name="Level_1p" type="Node2D"]
+script = ExtResource("1_u65qw")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1208.0
+offset_bottom = 688.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="Divider" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 70.0
+offset_right = 581.0
+offset_bottom = 91.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect2" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 110.0
+offset_right = 581.0
+offset_bottom = 131.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect3" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 150.0
+offset_right = 581.0
+offset_bottom = 171.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect4" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 190.0
+offset_right = 581.0
+offset_bottom = 211.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect5" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 230.0
+offset_right = 581.0
+offset_bottom = 251.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect6" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 270.0
+offset_right = 581.0
+offset_bottom = 291.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect9" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 390.0
+offset_right = 581.0
+offset_bottom = 411.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect10" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 430.0
+offset_right = 581.0
+offset_bottom = 451.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect11" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 470.0
+offset_right = 581.0
+offset_bottom = 491.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect12" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 510.0
+offset_right = 581.0
+offset_bottom = 531.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect13" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 550.0
+offset_right = 581.0
+offset_bottom = 571.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect14" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 590.0
+offset_right = 581.0
+offset_bottom = 593.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect7" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 310.0
+offset_right = 581.0
+offset_bottom = 331.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="ColorRect8" type="ColorRect" parent="Divider"]
+offset_left = 579.0
+offset_top = 350.0
+offset_right = 581.0
+offset_bottom = 371.0
+color = Color(1, 1, 1, 0.423529)
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(580, 330)
+
+[node name="LeftScoreArea" type="Area2D" parent="."]
+position = Vector2(24, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftScoreArea"]
+polygon = PackedVector2Array(88, 56, 83, -3, -70, 0, -73, 747, 135, 751, 131, 599, -30, 599, -27, 59)
+
+[node name="RightScoreArea" type="Area2D" parent="."]
+position = Vector2(1138, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightScoreArea"]
+polygon = PackedVector2Array(-117, 52, -120, -16, 135, -19, 137, 711, -76, 711, -77, 604, 80, 605, 81, 55)
+
+[node name="Wall1" type="StaticBody2D" parent="." groups=["Wall"]]
+position = Vector2(0, 63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(580, 3)
+shape = SubResource("RectangleShape2D_a2t5m")
+
+[node name="ColorRect" type="ColorRect" parent="Wall1"]
+offset_left = 37.0
+offset_top = 1.0
+offset_right = 1123.0
+offset_bottom = 5.0
+color = Color(1, 1, 1, 0.858824)
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall2" type="StaticBody2D" parent="." groups=["Wall"]]
+position = Vector2(0, 592)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(580, 3)
+shape = SubResource("RectangleShape2D_a2t5m")
+
+[node name="ColorRect" type="ColorRect" parent="Wall2"]
+offset_left = 37.0
+offset_top = 1.0
+offset_right = 1123.0
+offset_bottom = 5.0
+color = Color(1, 1, 1, 0.858824)
+
+[node name="Paddle" parent="." instance=ExtResource("2_druv2")]
+position = Vector2(46, 328)
+
+[node name="Paddle_AI" parent="." instance=ExtResource("3_sa6ks")]
+position = Vector2(1117, 339)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Player1Score" type="Label" parent="UI"]
+offset_left = 39.0
+offset_top = 7.0
+offset_right = 111.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("4_p7lc7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+
+[node name="Player2Score" type="Label" parent="UI"]
+offset_left = 1029.0
+offset_top = 7.0
+offset_right = 1120.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("4_p7lc7")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 2
+
+[node name="Countdown" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+
+[node name="Sound_Buzzer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_a71sy")
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Pause" parent="." instance=ExtResource("6_pfx6e")]
+visible = false
+offset_left = 587.0
+offset_top = 307.0
+offset_right = 587.0
+offset_bottom = 307.0
+
+[connection signal="area_entered" from="LeftScoreArea" to="." method="_on_left_score_area_area_entered"]
+[connection signal="area_entered" from="RightScoreArea" to="." method="_on_right_score_area_area_entered"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

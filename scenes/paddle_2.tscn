@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://elhndiaagy7n"]
+
+[ext_resource type="Script" path="res://scripts/paddle_2.gd" id="1_hycw8"]
+[ext_resource type="Texture2D" uid="uid://bmw46evopnlna" path="res://white_box.png" id="2_bfgtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obcw0"]
+size = Vector2(8, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubk0k"]
+size = Vector2(7.01539, 68.4702)
+
+[node name="Paddle_2" type="CharacterBody2D" groups=["Paddle"]]
+safe_margin = 0.001
+script = ExtResource("1_hycw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_obcw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.49012e-08, 0)
+scale = Vector2(0.309783, 0.359153)
+texture = ExtResource("2_bfgtg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.178326, 0.132487)
+shape = SubResource("RectangleShape2D_ubk0k")
